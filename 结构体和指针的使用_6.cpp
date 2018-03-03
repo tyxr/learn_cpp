@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include <windows.h>         // ÎªÁËÊ¹ÓÃSleep()º¯Êı
+#include <windows.h>         // ä¸ºäº†ä½¿ç”¨Sleep()å‡½æ•°
 
 struct FishOil
 {
@@ -21,19 +21,19 @@ int main()
 
 	while( 1 )
 	{
-		std::cout << "ÇëÑ¡ÔñĞèÒª½øĞĞµÄ²Ù×÷: \n";
-		std::cout << "1. ´òÓ¡Êı¾İµ½ÆÁÄ»\n";
-		std::cout << "2. Â¼ÈëÊı¾İ\n";
-		std::cout << "3. ÍË³ö³ÌĞò\n";
+		std::cout << "è¯·é€‰æ‹©éœ€è¦è¿›è¡Œçš„æ“ä½œ: \n";
+		std::cout << "1. æ‰“å°æ•°æ®åˆ°å±å¹•\n";
+		std::cout << "2. å½•å…¥æ•°æ®\n";
+		std::cout << "3. é€€å‡ºç¨‹åº\n";
 		std::cin >> i;
 
 		switch( i )
 		{
 			case 1:
 				if( ReadFishC() )
-					std::cout << "³É¹¦¶ÁÈ¡ÎÄ¼ş^_^\n\n";
+					std::cout << "æˆåŠŸè¯»å–æ–‡ä»¶^_^\n\n";
 				else
-					std::cout << "¶ÁÈ¡ÎÄ¼şÊ§°ÜT_T\n\n";
+					std::cout << "è¯»å–æ–‡ä»¶å¤±è´¥T_T\n\n";
 				break;
 			case 2:
 				RecordFishC();
@@ -56,8 +56,8 @@ bool ReadFishC()
 
 	if( fileInput.is_open() )
 	{
-		std::cout << "\nÕıÔÚÊä³ö¼ÇÂ¼Êı¾İ...... ";
-		/*for( int i=0; i <= 100; i++ )      // ´òÓ¡°Ù·Ö±È
+		std::cout << "\næ­£åœ¨è¾“å‡ºè®°å½•æ•°æ®...... ";
+		/*for( int i=0; i <= 100; i++ )      // æ‰“å°ç™¾åˆ†æ¯”
 		{
 			std::cout.width(3);
 			std::cout << i << "%";
@@ -67,7 +67,7 @@ bool ReadFishC()
 		std::cout << "\n\n";*/
 
 
-		std::cout << " ĞÕÃû " << "  Éí·İÖ¤  " << " ĞÔ±ğ " << "\n\n";
+		std::cout << " å§“å " << "  èº«ä»½è¯  " << " æ€§åˆ« " << "\n\n";
 
 		while( std::getline( fileInput, temp ) )
 		{
@@ -91,29 +91,29 @@ void RecordFishC()
 	goon = 'Y';
 	while( 'Y' == goon )
 	{
-		std::cout << "ÇëÊäÈëÕËºÅ: ";
+		std::cout << "è¯·è¾“å…¥è´¦å·: ";
 		std::cin >> OilData.name;
-		std::cout << "ÇëÊäÈëÉí·İÖ¤£º";
+		std::cout << "è¯·è¾“å…¥èº«ä»½è¯ï¼š";
 		std::cin >> OilData.uid;
-		std::cout << "ÇëÊäÈëĞÔ±ğ£º";
+		std::cout << "è¯·è¾“å…¥æ€§åˆ«ï¼š";
 		std::cin >> OilData.sex;
 
-		std::cout << "Â¼Èë³É¹¦, ÇëÎÊĞèÒª±£´æÂğ£¿£¨Y/N£©";
+		std::cout << "å½•å…¥æˆåŠŸ, è¯·é—®éœ€è¦ä¿å­˜å—ï¼Ÿï¼ˆY/Nï¼‰";
 		std::cin >> Save;
 		if( 'Y' == Save )
 		{
 			pOilData = &OilData;
 			if( WriteFishC( pOilData ) )
-				std::cout << "³É¹¦Ğ´ÈëÎÄ¼ş^_^\n";
+				std::cout << "æˆåŠŸå†™å…¥æ–‡ä»¶^_^\n";
 			else
-				std::cout << "Ğ´ÈëÎÄ¼şÊ§°ÜT_T\n";
+				std::cout << "å†™å…¥æ–‡ä»¶å¤±è´¥T_T\n";
 		}
 		else
 		{
 			return;
 		}
 
-		std::cout << "/nÇëÎÊĞèÒªÔÙ´ÎÂ¼ÈëÂğ£¿£¨Y/N£©";
+		std::cout << "/nè¯·é—®éœ€è¦å†æ¬¡å½•å…¥å—ï¼Ÿï¼ˆY/Nï¼‰";
 		std::cin >> goon;
 	}
 }
@@ -121,16 +121,16 @@ void RecordFishC()
 bool WriteFishC( FishOil *pOilData )
 {
 	std::ofstream fileOutput("struct.txt", std::ios::app);
-		// std::ios::appÓÃÀ´ËµÃ÷ÔÚÀÏÊı¾İ×·¼ÓĞÂÊı¾İ
+		// std::ios::appç”¨æ¥è¯´æ˜åœ¨è€æ•°æ®è¿½åŠ æ–°æ•°æ®
 	if( fileOutput.is_open() )
 	{
 		fileOutput << pOilData->name << " ";
 		fileOutput << pOilData->uid << " ";
-		fileOutput << (*pOilData).sex << "\n";//Ö¸Õë±íÊ¾·¨ 
+		fileOutput << (*pOilData).sex << "\n";//æŒ‡é’ˆè¡¨ç¤ºæ³• 
 
 		fileOutput.close();
-		std::cout << "Êı¾İ³É¹¦±£´æµ½struct.txt\n\n";
+		std::cout << "æ•°æ®æˆåŠŸä¿å­˜åˆ°struct.txt\n\n";
 	}
 	else
-		std::cout << "±£´æÊ§°ÜT_T\n";
+		std::cout << "ä¿å­˜å¤±è´¥T_T\n";
 }
